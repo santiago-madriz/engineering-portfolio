@@ -1,0 +1,26 @@
+---
+import Icon from './Icon.astro';
+interface Props {
+  number: string;
+  label: string;
+  title: string;
+  description: string;
+  tags: string[];
+  href: string;
+  featured?: boolean;
+}
+const { number, label, title, description, tags, href, featured = false } = Astro.props;
+---
+<article class:list={['project-card', { featured }]}> 
+  <div class="project-topline"><span>{number}</span><span>{label}</span></div>
+  <div class="project-visual" aria-hidden="true">
+    <div class="terminal-dots"><i></i><i></i><i></i></div>
+    <div class="signal-grid"><span></span><span></span><span></span></div>
+  </div>
+  <h3>{title}</h3>
+  <p>{description}</p>
+  <ul class="tag-list" aria-label="Technologies">
+    {tags.map((tag) => <li>{tag}</li>)}
+  </ul>
+  <a class="card-link" href={href}>Explore case study <Icon name="arrow" /></a>
+</article>

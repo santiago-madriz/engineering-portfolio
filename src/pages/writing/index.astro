@@ -1,0 +1,11 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Icon from '../../components/Icon.astro';
+---
+<BaseLayout title="Engineering Writing · Santiago Madriz" description="Notes on software engineering, test architecture, and production quality.">
+  <header class="page-intro" data-reveal><div class="eyebrow">Engineering notes</div><h1>Writing about the decisions behind <em>reliable software.</em></h1><p>Short, practical notes on architecture, automation, failure behavior, and what it means to build with quality from the beginning.</p></header>
+  <div class="writing-list" data-reveal>
+    <a class="writing-item" href="/writing/quality-is-architecture"><time datetime="2026-09-07">SEP 2026</time><div><h2>Quality is an architectural property</h2><p>Why testability, observability, and failure behavior belong in design—not in a final checklist.</p></div><Icon name="arrow" /></a>
+    <a class="writing-item" href="/writing/testing-media-heavy-sites"><time datetime="2026-09-07">SEP 2026</time><div><h2>Testing media-heavy sites without brittle tests</h2><p>Protecting real user behavior while leaving creative presentation room to evolve.</p></div><Icon name="arrow" /></a>
+  </div>
+</BaseLayout>

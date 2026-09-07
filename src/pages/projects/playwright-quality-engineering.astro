@@ -1,0 +1,12 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+<BaseLayout title="Playwright Quality Engineering · Santiago Madriz">
+  <header class="page-intro" data-reveal><div class="eyebrow">Case study · Quality platform</div><h1>Testing architecture built around risk.</h1><p>A production-style Playwright and TypeScript suite covering browser behavior, API contracts, accessibility, performance signals, and cross-browser confidence.</p></header>
+  <article class="prose" data-reveal>
+    <h2>Problem</h2><p>Test repositories often become collections of scripts with no clear risk model. This project treats automation as an engineered system: boundaries, reusable fixtures, intentional suites, useful evidence, and delivery feedback.</p>
+    <h2>Quality strategy</h2><p>Fast smoke checks protect pull requests while broader regression coverage can run on its own cadence. Failures retain the evidence needed to diagnose them, and assertions focus on user-visible or contract-level behavior.</p>
+    <h2>Engineering value</h2><p>The repository demonstrates that quality engineering is software engineering applied to confidence: readable abstractions, controlled data, deterministic behavior, and feedback that developers can act on.</p>
+    <p><a href="https://github.com/santiago-madriz/playwright-quality-engineering" target="_blank" rel="noopener">View the public repository →</a></p>
+  </article>
+</BaseLayout>

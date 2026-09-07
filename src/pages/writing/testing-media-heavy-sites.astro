@@ -1,0 +1,13 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+<BaseLayout title="Testing media-heavy sites without brittle tests · Santiago Madriz">
+  <header class="page-intro" data-reveal><div class="eyebrow">Engineering note · 4 min read</div><h1>Testing media-heavy sites without brittle tests.</h1><p>A creative portfolio should be free to evolve visually without losing confidence in navigation, content, accessibility, or delivery.</p></header>
+  <article class="prose" data-reveal>
+    <p>Screenshot comparisons are tempting for image-heavy sites, but a large visual snapshot often turns every creative adjustment into a test failure. Stronger coverage starts by separating stable behavior from changing art direction.</p>
+    <h2>Protect the contract</h2><p>Test that essential sections exist, media references resolve, controls expose useful accessible names, filters preserve matching work, and mobile layouts do not overflow. These behaviors matter even when the grid, type scale, or imagery changes.</p>
+    <h2>Treat media as a performance boundary</h2><p>Posters should arrive before video, below-the-fold images should load lazily, and off-screen playback should pause. These are observable behaviors that can be checked without asserting a fragile pixel-perfect composition.</p>
+    <h2>Use visual checks with intent</h2><p>Focused snapshots still help for a navigation shell, a critical form state, or a known breakpoint. Keep the captured region small and review baseline changes as design decisions—not as automatic updates.</p>
+    <blockquote>The test suite should protect the visitor’s experience without becoming the creative director.</blockquote>
+  </article>
+</BaseLayout>
