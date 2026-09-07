@@ -1,13 +1,20 @@
 ---
 import Icon from './Icon.astro';
 const base = import.meta.env.BASE_URL;
+const currentPath = Astro.url.pathname.replace(/\/+$/, '') || '/';
+const homePath = base.replace(/\/+$/, '') || '/';
+const isHome = currentPath === homePath;
+const isWork = currentPath.startsWith(`${homePath === '/' ? '' : homePath}/projects`);
+const isExperience = currentPath.startsWith(`${homePath === '/' ? '' : homePath}/experience`);
+const isCredentials = currentPath.startsWith(`${homePath === '/' ? '' : homePath}/credentials`);
 ---
 <header class="site-header">
   <a class="brand" href={base} aria-label="Santiago Madriz, home"><span class="brand-mark">SM</span><span>Santiago Madriz</span></a>
   <nav aria-label="Primary navigation">
-    <a href={`${base}projects`}>Work</a>
-    <a href={`${base}experience`}>Experience</a>
-    <a href={`${base}credentials`}>Credentials</a>
+    <a href={base} aria-current={isHome ? 'page' : undefined}>Home</a>
+    <a href={`${base}projects`} aria-current={isWork ? 'page' : undefined}>Work</a>
+    <a href={`${base}experience`} aria-current={isExperience ? 'page' : undefined}>Experience</a>
+    <a href={`${base}credentials`} aria-current={isCredentials ? 'page' : undefined}>Credentials</a>
   </nav>
   <a class="header-cta" href="mailto:santiagomadrizc@gmail.com">Let's talk <Icon name="arrow" /></a>
 </header>

@@ -9,6 +9,16 @@ test('home communicates positioning and featured work', async ({ page }) => {
   await expect(page.getByRole('heading', { name: 'Software Engineer II' })).toBeVisible();
   await expect(page.getByText('Costa Rica · Available for opportunities')).toHaveCount(0);
   await expect(page.getByRole('link', { name: /GitHub/ })).toHaveAttribute('href', 'https://github.com/santiago-madriz');
+  await expect(page.getByRole('link', { name: 'Home', exact: true })).toHaveAttribute('aria-current', 'page');
+  await expect(page.locator('.ambient-motion')).toHaveCount(1);
+});
+
+test('primary navigation identifies the current section', async ({ page }) => {
+  for (const [path, label] of [['/projects', 'Work'], ['/projects/techy', 'Work'], ['/experience', 'Experience'], ['/credentials', 'Credentials']]) {
+    await page.goto(path);
+    await expect(page.getByRole('link', { name: label, exact: true })).toHaveAttribute('aria-current', 'page');
+    await expect(page.locator('nav[aria-label="Primary navigation"] a[aria-current="page"]')).toHaveCount(1);
+  }
 });
 
 test('all internal navigation targets resolve', async ({ page, request }) => {

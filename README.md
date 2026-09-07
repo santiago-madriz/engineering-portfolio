@@ -12,6 +12,8 @@ Communicate a focused professional story: software engineering strengthened by d
 - A production Techy case study linked to [techy-cr.com](https://techy-cr.com/)
 - A private-repository Galería Mexicana case study linked to its [live storefront](https://galeriamexicanacr.com/)
 - Prominent live-site, repository, and quality-pipeline links at the start of every case study
+- URL-aware primary navigation with a clear animated current-section indicator
+- Subtle persistent ambient motion with reduced-motion accessibility support
 - An interactive Spanish Sentiment Lab demo with an explicit OpenAI availability disclaimer
 - Native work-experience and education sections with official employer references
 - Teaching experience and directly verifiable certificates
