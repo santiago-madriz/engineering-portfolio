@@ -1,0 +1,14 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+<BaseLayout title="Galería Mexicana Case Study · Santiago Madriz" description="A public-safe engineering case study for Galería Mexicana, a live retail platform in Costa Rica.">
+  <header class="page-intro" data-reveal><div class="eyebrow">Case study · Production commerce</div><h1>Galería Mexicana: connecting a physical business with digital customers.</h1><p>A live commerce platform for authentic Mexican products and services in Costa Rica, presented here without exposing its private repository or operational configuration.</p></header>
+  <article class="prose" data-reveal>
+    <h2>Product surface</h2><p>The experience combines product discovery, search and filters, cart behavior, brand and service information, physical-location guidance, WhatsApp contact, and educational articles in one responsive storefront.</p>
+    <h2>Architecture</h2><p>Next.js and React provide the public experience. Supabase supports the catalog and administration boundary, while a local product fallback keeps the storefront useful when remote data is unavailable. The project also includes sitemap, robots, analytics, structured SEO content, and a focused blog.</p>
+    <h2>Quality evidence</h2><p>Jest and Testing Library cover cart state, product cards, filters, database boundaries, and the main page. Web-vitals instrumentation and documented SEO and test strategies make performance and discoverability explicit engineering concerns.</p>
+    <h2>Why it belongs</h2><p>This is production work shaped by real inventory, content, location, payment, and customer-contact constraints. It shows the ability to translate an existing local business into a broad digital product rather than an isolated technical demo.</p>
+    <h2>Confidentiality</h2><p>The implementation repository remains private. This case study intentionally limits itself to public behavior, architecture at a safe level, and visible product outcomes.</p>
+    <p><a href="https://galeriamexicanacr.com/" target="_blank" rel="noopener">Visit the live storefront →</a></p>
+  </article>
+</BaseLayout>
