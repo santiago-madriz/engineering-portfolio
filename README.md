@@ -6,6 +6,13 @@ Recruiter-facing engineering portfolio for Santiago Madriz, built with Astro and
 
 Communicate a focused professional story: software engineering strengthened by deep quality-engineering instincts, demonstrated through a small number of real, production-minded projects.
 
+## Content
+
+- Selected engineering work with live product previews where a public deployment exists
+- Work experience and measurable outcomes drawn from the current CV
+- Teaching experience and directly verifiable certificates
+- Embedded and downloadable one-page CV
+
 ## Local development
 
 Requires Node.js 22.19 or newer.
@@ -23,7 +30,7 @@ npx playwright install chromium
 npm test
 ```
 
-The Playwright suite covers desktop and mobile positioning, navigation integrity, project and writing content, and horizontal layout overflow. GitHub Actions runs the production build and desktop smoke suite.
+The Playwright suite covers desktop and mobile positioning, navigation integrity, project previews, experience, credentials, CV access, and horizontal layout overflow. GitHub Actions runs the production build and desktop smoke suite.
 
 ## Deployment
 

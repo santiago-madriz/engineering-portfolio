@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
+const base = import.meta.env.BASE_URL;
+---
+<BaseLayout title="Work Experience · Santiago Madriz" description="Software engineering, quality engineering, automation, and cloud support experience by Santiago Madriz.">
+  <header class="page-intro" data-reveal>
+    <div class="eyebrow">Work experience</div>
+    <h1>Software engineering grounded in <em>production quality.</em></h1>
+    <p>Experience across backend services, test architecture, delivery automation, enterprise RPA, and cloud diagnostics.</p>
+  </header>
+
+  <section class="career-timeline" aria-label="Professional experience">
+    <article class="career-role" data-reveal>
+      <div><time>2025 — Present</time><span>Current role</span></div>
+      <div><h2>Software Engineer II</h2><p class="company">Datasite</p><ul><li>Contribute to a Java and Python document-processing engine with a 99.5% successful processing rate for supported documents.</li><li>Built an AI-assisted Playwright test creation skill that reduced test creation and validation time by 45%.</li><li>Automated production deployment validation, reducing engineering review time by approximately 80%.</li><li>Improved AI-assisted troubleshooting across Grafana, Loki, Cortex, and internal tools.</li></ul></div>
+    </article>
+    <article class="career-role" data-reveal>
+      <div><time>2023 — 2025</time></div>
+      <div><h2>QA Engineer</h2><p class="company">Konrad Group</p><p>Integrated automated tests into GitLab and Azure DevOps pipelines, improving delivery efficiency by 25%. Validated AEM and Adobe Marketo solutions while collaborating across engineering, design, and product.</p></div>
+    </article>
+    <article class="career-role" data-reveal>
+      <div><time>2022 — 2023</time></div>
+      <div><h2>Associate QA Engineer</h2><p class="company">Konrad Group</p><p>Supported web application quality through regression coverage, QA documentation, and early automation framework development.</p></div>
+    </article>
+    <article class="career-role" data-reveal>
+      <div><time>2022 — 2023</time></div>
+      <div><h2>RPA Developer</h2><p class="company">Lanshore</p><p>Developed UiPath automations for enterprise processes and supported Orchestrator, Studio, and Assistant environments.</p></div>
+    </article>
+    <article class="career-role" data-reveal>
+      <div><time>2021 — 2022</time></div>
+      <div><h2>Technical Support Engineer L3</h2><p class="company">Tek Experts</p><p>Handled advanced Microsoft Azure Cloud Services escalations, API-level diagnostics, internal documentation, and knowledge-sharing for Level 2 engineers.</p></div>
+    </article>
+  </section>
+
+  <section class="education-card" data-reveal>
+    <div class="eyebrow">Education</div>
+    <h2>Bachelor of Engineering in Computer Engineering</h2>
+    <p>Costa Rica Institute of Technology (TEC) · 2019 — 2023 · GPA 80.5</p>
+  </section>
+
+  <div class="page-actions" data-reveal>
+    <a class="button" href={`${base}cv`}>View CV <Icon name="arrow" /></a>
+    <a class="button secondary" href={`${base}credentials`}>Teaching & credentials</a>
+  </div>
+</BaseLayout>

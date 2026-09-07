@@ -5,9 +5,9 @@ const base = import.meta.env.BASE_URL;
 <header class="site-header">
   <a class="brand" href={base} aria-label="Santiago Madriz, home"><span class="brand-mark">SM</span><span>Santiago Madriz</span></a>
   <nav aria-label="Primary navigation">
-    <a href={`${base}projects`}>Projects</a>
-    <a href={`${base}writing`}>Writing</a>
-    <a href={`${base}about`}>About</a>
+    <a href={`${base}projects`}>Work</a>
+    <a href={`${base}experience`}>Experience</a>
+    <a href={`${base}credentials`}>Credentials</a>
   </nav>
-  <a class="header-cta" href="mailto:santiagomadrizc@gmail.com">Let's talk <Icon name="arrow" /></a>
+  <a class="header-cta" href={`${base}cv`}>View CV <Icon name="arrow" /></a>
 </header>

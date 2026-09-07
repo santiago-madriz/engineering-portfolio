@@ -6,6 +6,8 @@ test('home communicates positioning and featured work', async ({ page }) => {
   await expect(page.getByRole('heading', { level: 1 })).toContainText('Software built');
   await expect(page.getByRole('main')).toBeVisible();
   await expect(page.getByRole('heading', { name: 'Techy' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Software Engineer II' })).toBeVisible();
+  await expect(page.getByText('Costa Rica · Available for opportunities')).toHaveCount(0);
   await expect(page.getByRole('link', { name: /GitHub/ })).toHaveAttribute('href', 'https://github.com/santiago-madriz');
 });
 
@@ -18,15 +20,20 @@ test('all internal navigation targets resolve', async ({ page, request }) => {
   }
 });
 
-test('project and writing indexes expose real detail pages', async ({ page }) => {
+test('work, experience, credentials, and CV are exposed', async ({ page }) => {
   await page.goto('/projects');
   await expect(page.locator('.project-card')).toHaveCount(4);
-  await page.goto('/writing');
-  await expect(page.locator('.writing-item')).toHaveCount(2);
+  await expect(page.locator('.project-preview')).toHaveCount(2);
+  await page.goto('/experience');
+  await expect(page.locator('.career-role')).toHaveCount(5);
+  await page.goto('/credentials');
+  await expect(page.locator('.credential-card')).toHaveCount(3);
+  await page.goto('/cv');
+  await expect(page.getByRole('link', { name: /Download PDF/ })).toHaveAttribute('href', '/documents/Santiago-Madriz-CV.pdf');
 });
 
 test('layout has no horizontal overflow', async ({ page }) => {
-  for (const path of ['/', '/projects', '/projects/techy', '/writing', '/about']) {
+  for (const path of ['/', '/projects', '/projects/techy', '/experience', '/credentials', '/cv']) {
     await page.goto(path);
     const dimensions = await page.evaluate(() => ({ client: document.documentElement.clientWidth, scroll: document.documentElement.scrollWidth }));
     expect(dimensions.scroll, `${path} should not overflow`).toBe(dimensions.client);

@@ -8,15 +8,23 @@ interface Props {
   tags: string[];
   href: string;
   featured?: boolean;
+  previewSrc?: string;
+  previewAlt?: string;
 }
-const { number, label, title, description, tags, href, featured = false } = Astro.props;
+const { number, label, title, description, tags, href, featured = false, previewSrc, previewAlt = '' } = Astro.props;
 ---
 <article class:list={['project-card', { featured }]}> 
   <div class="project-topline"><span>{number}</span><span>{label}</span></div>
-  <div class="project-visual" aria-hidden="true">
-    <div class="terminal-dots"><i></i><i></i><i></i></div>
-    <div class="signal-grid"><span></span><span></span><span></span></div>
-  </div>
+  {previewSrc ? (
+    <div class="project-visual project-preview">
+      <img src={previewSrc} alt={previewAlt} loading="lazy" />
+    </div>
+  ) : (
+    <div class="project-visual" aria-hidden="true">
+      <div class="terminal-dots"><i></i><i></i><i></i></div>
+      <div class="signal-grid"><span></span><span></span><span></span></div>
+    </div>
+  )}
   <h3>{title}</h3>
   <p>{description}</p>
   <ul class="tag-list" aria-label="Technologies">

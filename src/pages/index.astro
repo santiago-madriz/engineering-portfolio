@@ -7,7 +7,6 @@ const base = import.meta.env.BASE_URL;
 <BaseLayout>
   <section class="hero">
     <div class="hero-copy" data-reveal>
-      <span class="availability"><span class="status-dot"></span> Costa Rica · Available for opportunities</span>
       <h1>Software built with <em>quality in the system.</em></h1>
       <p>I’m Santiago, a Software Engineer with Quality Engineering expertise. I build, test, and explain reliable production systems from the API to the user experience.</p>
       <div class="hero-actions">
@@ -43,15 +42,28 @@ const base = import.meta.env.BASE_URL;
       <div><h2>Real work, <em>deliberately engineered.</em></h2><p>A small set of projects chosen to show product thinking, software development, and a quality strategy that goes beyond happy-path automation.</p></div>
     </div>
     <div class="project-grid">
-      <ProjectCard number="01" label="Product system" title="Techy" description="A real commerce experience for Apple products in Costa Rica, now entering a private modernization phase with a public-safe engineering story." tags={['Next.js', 'TypeScript', 'Sanity']} href={`${base}projects/techy`} featured />
+      <ProjectCard number="01" label="Product system" title="Techy" description="A real commerce experience for Apple products in Costa Rica, now entering a private modernization phase with a public-safe engineering story." tags={['Next.js', 'TypeScript', 'Sanity']} href={`${base}projects/techy`} previewSrc={`${base}previews/techy-home.png`} previewAlt="Techy CR storefront homepage" featured />
       <ProjectCard number="02" label="Quality platform" title="Playwright Quality Engineering" description="Risk-based UI, API, accessibility, performance, and cross-browser coverage organized as a production-style test system." tags={['Playwright', 'TypeScript', 'CI/CD']} href={`${base}projects/playwright-quality-engineering`} />
-      <ProjectCard number="03" label="Production frontend" title="Photo & Film Portfolio" description="An owned, media-heavy production site with bilingual UX, accessibility gates, responsive behavior, and automated release checks." tags={['Web', 'A11y', 'Playwright']} href={`${base}projects/photography-platform`} />
+      <ProjectCard number="03" label="Production frontend" title="Photo & Film Portfolio" description="An owned, media-heavy production site with bilingual UX, accessibility gates, responsive behavior, and automated release checks." tags={['Web', 'A11y', 'Playwright']} href={`${base}projects/photography-platform`} previewSrc={`${base}previews/photography-home.png`} previewAlt="Santiago Madriz photography and film homepage" />
     </div>
+  </section>
+
+  <section class="section" id="experience">
+    <div class="section-heading" data-reveal>
+      <span class="eyebrow">Work experience</span>
+      <div><h2>Engineering across <em>software, quality, and operations.</em></h2><p>Progressive responsibility from cloud support and automation to production software engineering and AI-assisted quality systems.</p></div>
+    </div>
+    <div class="experience-list" data-reveal>
+      <article class="experience-item featured-role"><time>2025 — Present</time><div><h3>Software Engineer II</h3><p class="company">Datasite</p><p>Java and Python document processing, AI-assisted Playwright tooling, deployment validation, and cross-system troubleshooting.</p></div></article>
+      <article class="experience-item"><time>2022 — 2025</time><div><h3>QA Engineer → Associate QA Engineer</h3><p class="company">Konrad Group</p><p>Automated delivery pipelines, web quality, AEM and Marketo validation, and early framework development.</p></div></article>
+      <article class="experience-item"><time>2021 — 2023</time><div><h3>RPA Developer · Technical Support Engineer L3</h3><p class="company">Lanshore · Tek Experts</p><p>Enterprise automation, Azure diagnostics, technical documentation, and escalation support.</p></div></article>
+    </div>
+    <a class="text-link" href={`${base}experience`}>View full work experience <Icon name="arrow" /></a>
   </section>
 
   <section class="section method" data-reveal>
     <div>
-      <span class="eyebrow">How I work</span>
+      <span class="section-kicker">How I work</span>
       <h2>Quality is not a final step. <em>It shapes the architecture.</em></h2>
       <p>My QA background changes how I write software: I look for observable boundaries, explicit failure behavior, testable contracts, and delivery signals from the beginning.</p>
     </div>
