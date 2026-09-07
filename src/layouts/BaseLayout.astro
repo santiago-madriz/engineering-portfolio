@@ -39,15 +39,38 @@ const base = import.meta.env.BASE_URL;
       <Footer />
     </div>
     <script>
+      const entranceSelector = [
+        '.site-header .brand', '.site-header nav a', '.header-cta',
+        'main h1', 'main h2', 'main h3', 'main p', 'main .eyebrow', 'main .section-kicker',
+        'main .button', 'main .text-link', 'main .hero-proof li',
+        'main .laptop-scene', 'main .system-card', 'main .system-card > *',
+        'main .connector', 'main .connector-dot',
+        'main .project-card', 'main .project-card > *', 'main .project-card li', 'main .project-preview img',
+        'main .experience-item', 'main .experience-item > *',
+        'main .career-role', 'main .career-role > *',
+        'main .principle', 'main .principle > *',
+        'main .case-link', 'main .teaching-grid article', 'main .teaching-grid article > *',
+        'main .credential-card', 'main .credential-card > *', 'main .credential-preview img',
+        'main .page-actions > *', 'main .cta-band > *', 'footer > *'
+      ].join(',');
+      const entranceElements = [...document.querySelectorAll<HTMLElement>(entranceSelector)];
+
+      document.documentElement.classList.add('motion-enabled');
+      entranceElements.forEach((element, index) => {
+        element.dataset.enter = '';
+        element.style.setProperty('--enter-delay', `${(index % 7) * 48}ms`);
+      });
+
       const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
+            entry.target.classList.add('entered');
             observer.unobserve(entry.target);
           }
         });
-      }, { threshold: 0.12 });
-      document.querySelectorAll('[data-reveal]').forEach((element) => observer.observe(element));
+      }, { threshold: 0.08, rootMargin: '0px 0px -3% 0px' });
+
+      entranceElements.forEach((element) => observer.observe(element));
     </script>
   </body>
 </html>

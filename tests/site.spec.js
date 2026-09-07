@@ -14,6 +14,19 @@ test('home communicates positioning and featured work', async ({ page }) => {
   await expect(page.getByAltText('Black laptop displaying colorful Playwright and TypeScript test code')).toBeVisible();
 });
 
+test('content enters smoothly throughout the page', async ({ page }) => {
+  await page.goto('/');
+  const entranceElements = page.locator('[data-enter]');
+  expect(await entranceElements.count()).toBeGreaterThan(35);
+  await expect(page.getByRole('heading', { level: 1 })).toHaveClass(/entered/);
+  await expect(page.getByRole('link', { name: 'View selected work' })).toHaveCSS('transition-duration', /0\.72s/);
+
+  await page.getByRole('heading', { name: /Real work/ }).scrollIntoViewIfNeeded();
+  await expect(page.getByRole('heading', { name: /Real work/ })).toHaveClass(/entered/);
+  await page.getByRole('heading', { name: 'Techy' }).scrollIntoViewIfNeeded();
+  await expect(page.getByRole('heading', { name: 'Techy' })).toHaveClass(/entered/);
+});
+
 test('laptop responds to scroll and preserves reduced-motion preferences', async ({ page }) => {
   await page.goto('/');
   const laptop = page.locator('[data-scroll-laptop]');
