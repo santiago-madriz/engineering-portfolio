@@ -9,6 +9,7 @@ Communicate a focused professional story: software engineering strengthened by d
 ## Content
 
 - Selected engineering work, prioritizing projects with current live-product previews
+- A production Techy case study linked to [techy-cr.com](https://techy-cr.com/)
 - An interactive Spanish Sentiment Lab demo with an explicit OpenAI availability disclaimer
 - Native work-experience and education sections with official employer references
 - Teaching experience and directly verifiable certificates
