@@ -1,4 +1,4 @@
-# santiago-madriz.dev
+# [Santiago Madriz — Engineering Portfolio](https://santiagomadriz.com/dev/)
 
 Recruiter-facing engineering portfolio for Santiago Madriz, built with Astro and TypeScript.
 
@@ -27,6 +27,10 @@ The Playwright suite covers desktop and mobile positioning, navigation integrity
 
 ## Deployment
 
-The site builds to `dist/` and can be deployed to Cloudflare Pages, Netlify, Vercel, or GitHub Pages. Set the production project to build with `npm run build` and publish `dist`.
+The site is statically generated into `dist/` and published below `/dev/` on the main GitHub Pages site.
+
+```bash
+GITHUB_PAGES=true PORTFOLIO_BASE=/dev npm run build
+```
 
 The production portfolio is published at `https://santiagomadriz.com/dev/`.
