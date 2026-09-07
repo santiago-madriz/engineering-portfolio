@@ -97,7 +97,6 @@ h1 em, h2 em { color: var(--copper-soft); font-style: normal; }
 .laptop-scene canvas { position: relative; z-index: 2; display: block; width: 100%; aspect-ratio: 1.36; opacity: 0; transition: opacity .45s var(--ease); }
 .laptop-scene.model-loaded canvas { opacity: 1; }
 .laptop-halo { position: absolute; z-index: 0; inset: 25% 5% 15%; border-radius: 50%; background: radial-gradient(ellipse, rgba(226,223,218,.12), transparent 68%); filter: blur(28px); }
-.laptop-caption { position: absolute; z-index: 3; right: -3%; bottom: 4%; padding: 7px 10px; border: 1px solid rgba(63,111,159,.36); border-radius: 999px; background: rgba(5,5,5,.8); color: var(--copper-soft); font: 500 8px "SFMono-Regular", Consolas, monospace; letter-spacing: .13em; text-transform: uppercase; backdrop-filter: blur(12px); }
 .system-card { position: absolute; z-index: 2; padding: 19px; background: linear-gradient(145deg, rgba(25,25,25,.92), rgba(8,8,8,.96)); border: 1px solid rgba(226,223,218,.14); border-radius: 18px; box-shadow: 0 25px 80px rgba(0,0,0,.5), inset 0 1px rgba(226,223,218,.04); backdrop-filter: blur(14px); }
 .system-card.one { width: 68%; top: 0; left: 0; }
 .system-card.two { width: 70%; top: 205px; right: 0; border-color: rgba(63,111,159,.44); }
@@ -257,7 +256,6 @@ footer div { display: flex; align-items: center; gap: 9px; }
   .hero-proof { flex-direction: column; gap: 10px; }
   .system-visual { min-height: 0; display: grid; gap: 18px; padding-left: 0; }
   .laptop-scene { position: relative; top: auto; width: 74%; margin: 0 auto -12px; }
-  .laptop-caption { right: -8%; bottom: 5%; }
   .system-card, .system-card.one, .system-card.two, .system-card.three { position: relative; inset: auto; width: 100%; padding: 16px; }
   .system-card.one::after, .system-card.two::after { content: ''; position: absolute; z-index: -1; bottom: -19px; left: 28px; width: 2px; height: 19px; background: var(--copper); box-shadow: 0 0 10px rgba(63,111,159,.72); }
   .connector, .connector-dot { display: none; }
