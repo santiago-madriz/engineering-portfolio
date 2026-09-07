@@ -13,7 +13,7 @@ Communicate a focused professional story: software engineering strengthened by d
 - A private-repository Galería Mexicana case study linked to its [live storefront](https://galeriamexicanacr.com/)
 - Prominent live-site, repository, and quality-pipeline links at the start of every case study
 - URL-aware primary navigation with a clear animated current-section indicator
-- Dark visual system with eye-friendly warm-gray typography, selective color accents, restrained expanded display typography, and visible animated film-grain texture
+- Dark visual system with eye-friendly warm-gray typography, layered navy-blue accents, restrained expanded display typography, and visible animated film-grain texture
 - A compact custom laptop render whose perspective and roll respond clearly to scroll, with reduced-motion accessibility support
 - Viewport-aware entrance transitions for navigation, text, controls, cards, imagery, credentials, and footer content
 - Balanced two-row mobile header with evenly distributed navigation and aligned primary actions
