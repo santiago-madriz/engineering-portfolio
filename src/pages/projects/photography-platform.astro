@@ -1,13 +1,14 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import CaseLinks from '../../components/CaseLinks.astro';
 ---
 <BaseLayout title="Photography Platform · Santiago Madriz">
   <header class="page-intro" data-reveal><div class="eyebrow">Case study · Production frontend</div><h1>A visual portfolio treated as production software.</h1><p>A photography identity preserved while its delivery, accessibility, testability, and operating documentation become stronger.</p></header>
+  <CaseLinks links={[{ label: 'Visit production site', href: 'https://santiagomadriz.com/' }, { label: 'View public repository', href: 'https://github.com/santiago-madriz/santiago-madriz.github.io' }]} />
   <article class="prose" data-reveal>
     <h2>Context</h2><p>The site is a real creative property, not a generic engineering demo. The work was to improve its technical foundation without compromising its visual purpose.</p>
     <h2>Implementation</h2><p>The dependency-free production runtime uses semantic HTML, responsive CSS, bilingual client-side content, lazy imagery, and viewport-aware video previews. GitHub Pages keeps deployment simple and predictable.</p>
     <h2>Quality strategy</h2><p>Playwright checks desktop and mobile landmarks, filtering, language behavior, contact semantics, and local media integrity. Pull requests run a focused Chromium gate and retain evidence on failure.</p>
     <h2>Outcome</h2><p>The repository now includes canonical and social metadata, structured data, crawler files, accessibility navigation, visible focus states, security guidance, architecture decisions, and reproducible tests.</p>
-    <p><a href="https://santiagomadriz.com" target="_blank" rel="noopener">Visit the production site →</a></p>
   </article>
 </BaseLayout>

@@ -50,3 +50,12 @@ test('mobile engineering workflow cards never overlap', async ({ page }) => {
   expect(cards[0].bottom).toBeLessThanOrEqual(cards[1].top);
   expect(cards[1].bottom).toBeLessThanOrEqual(cards[2].top);
 });
+
+test('case-study links appear before the technical content', async ({ page }) => {
+  for (const path of ['/projects/techy', '/projects/galeria-mexicana', '/projects/spanish-sentiment-lab', '/projects/photography-platform', '/projects/playwright-quality-engineering']) {
+    await page.goto(path);
+    const links = page.locator('header.page-intro + .case-links');
+    await expect(links, `${path} should expose links immediately after its intro`).toBeVisible();
+    await expect(links.locator('a').first()).toBeVisible();
+  }
+});

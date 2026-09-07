@@ -144,6 +144,11 @@ footer div { display: flex; align-items: center; gap: 9px; }
 .page-intro .eyebrow { margin-bottom: 22px; }
 .page-intro p { max-width: 650px; color: var(--muted); font-size: 17px; }
 .projects-page .project-grid { grid-template-columns: repeat(2, 1fr); }
+.case-links { display: flex; flex-wrap: wrap; gap: 10px; max-width: 760px; margin: -34px 0 24px; padding-bottom: 30px; border-bottom: 1px solid var(--line); }
+.case-link { display: inline-flex; align-items: center; justify-content: space-between; gap: 22px; min-height: 46px; padding: 0 16px; border: 1px solid var(--line); border-radius: 11px; color: var(--text); font-size: 12px; font-weight: 600; transition: transform .25s var(--ease), border-color .25s var(--ease), background .25s var(--ease); }
+.case-link:hover { transform: translateY(-2px); border-color: rgba(255,145,85,.45); background: rgba(255,145,85,.045); }
+.case-link--primary { border-color: rgba(255,145,85,.45); background: var(--copper); color: #180b05; }
+.case-link--primary:hover { background: var(--copper-soft); }
 .prose { max-width: 760px; padding-bottom: 120px; }
 .prose h2 { margin: 60px 0 16px; font-size: 30px; letter-spacing: -.035em; font-weight: 500; }
 .prose h3 { margin-top: 35px; color: var(--copper-soft); font: 500 12px "SFMono-Regular", Consolas, monospace; letter-spacing: .08em; text-transform: uppercase; }
@@ -225,6 +230,8 @@ footer div { display: flex; align-items: center; gap: 9px; }
   .system-card, .system-card.one, .system-card.two, .system-card.three { position: relative; inset: auto; width: 100%; padding: 16px; }
   .system-card.one::after, .system-card.two::after { content: ''; position: absolute; z-index: -1; bottom: -19px; left: 28px; width: 2px; height: 19px; background: var(--copper); box-shadow: 0 0 10px rgba(255,115,49,.7); }
   .connector, .connector-dot { display: none; }
+  .case-links { display: grid; margin-top: -42px; }
+  .case-link { width: 100%; }
   .section { padding: 80px 0; }
   .projects-page .project-grid { grid-template-columns: 1fr; }
   .experience-item, .career-role { grid-template-columns: 1fr; gap: 12px; }

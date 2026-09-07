@@ -1,0 +1,19 @@
+---
+interface ProjectLink {
+  label: string;
+  href: string;
+}
+
+interface Props {
+  links: ProjectLink[];
+}
+
+const { links } = Astro.props;
+---
+<nav class="case-links" aria-label="Project links" data-reveal>
+  {links.map((link, index) => (
+    <a class:list={['case-link', { 'case-link--primary': index === 0 }]} href={link.href} target="_blank" rel="noopener">
+      <span>{link.label}</span><span aria-hidden="true">↗</span>
+    </a>
+  ))}
+</nav>
