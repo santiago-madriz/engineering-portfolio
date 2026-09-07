@@ -14,7 +14,7 @@ Communicate a focused professional story: software engineering strengthened by d
 - Prominent live-site, repository, and quality-pipeline links at the start of every case study
 - URL-aware primary navigation with a clear animated current-section indicator
 - Dark visual system with eye-friendly warm-gray typography, layered navy-blue accents, restrained expanded display typography, and visible animated film-grain texture
-- A real WebGL laptop model, loaded from a production FBX asset, that completes a full 360° scroll-driven rotation with a static fallback and reduced-motion support
+- A real WebGL laptop model with its original modern wallpaper, an offset corner pivot, and a full 360° scroll-driven rotation with reduced-motion support
 - Viewport-aware entrance transitions for navigation, text, controls, cards, imagery, credentials, and footer content
 - Balanced two-row mobile header with evenly distributed navigation and aligned primary actions
 - An interactive Spanish Sentiment Lab demo with an explicit OpenAI availability disclaimer

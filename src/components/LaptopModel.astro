@@ -2,10 +2,9 @@
 const base = import.meta.env.BASE_URL;
 ---
 
-<div class="laptop-scene" data-laptop-model data-model-url={`${base}models/macbookpro.fbx`} data-rotation="0">
+<div class="laptop-scene" data-laptop-model data-model-url={`${base}models/macbookpro.fbx`} data-wallpaper-url={`${base}models/macbook-wallpaper.jpg`} data-rotation="0">
   <div class="laptop-halo"></div>
-  <canvas role="img" aria-label="Interactive 3D laptop rotating through a full turn while scrolling"></canvas>
-  <img class="laptop-fallback" src={`${base}visuals/code-laptop.png`} alt="Black laptop displaying colorful Playwright and TypeScript test code" width="1536" height="1024" loading="eager" fetchpriority="high" />
+  <canvas role="img" aria-label="Interactive 3D laptop with a modern wallpaper, rotating through a full turn while scrolling"></canvas>
   <span class="laptop-caption">360° · Scroll to rotate</span>
 </div>
 
@@ -15,53 +14,11 @@ const base = import.meta.env.BASE_URL;
 
   const clamp = (value: number) => Math.min(1, Math.max(0, value));
 
-  const createCodeTexture = () => {
-    const canvas = document.createElement('canvas');
-    canvas.width = 1200;
-    canvas.height = 720;
-    const context = canvas.getContext('2d');
-    if (!context) return null;
-
-    context.fillStyle = '#05070b';
-    context.fillRect(0, 0, canvas.width, canvas.height);
-    const gradient = context.createLinearGradient(0, 0, canvas.width, canvas.height);
-    gradient.addColorStop(0, 'rgba(63,111,159,.18)');
-    gradient.addColorStop(1, 'rgba(0,0,0,0)');
-    context.fillStyle = gradient;
-    context.fillRect(0, 0, canvas.width, canvas.height);
-
-    context.font = '28px ui-monospace, SFMono-Regular, Menlo, monospace';
-    const lines = [
-      ['#8fb3d4', "import { test, expect } from '@playwright/test';"],
-      ['#87909a', "test.describe('release confidence', () => {"],
-      ['#d7b26d', "  test('protects the customer journey', async ({ page }) => {"],
-      ['#8fb3d4', "    await page.goto('/');"],
-      ['#ad82c4', "    await expect(page.getByRole('main')).toBeVisible();"],
-      ['#76a889', "    await expect(page).toHaveTitle(/Santiago Madriz/);"],
-      ['#87909a', '  });'],
-      ['#87909a', '});'],
-      ['#d7b26d', ''],
-      ['#8fb3d4', 'const quality = {'],
-      ['#76a889', "  architecture: 'testable',"],
-      ['#76a889', "  delivery: 'observable',"],
-      ['#76a889', "  experience: 'reliable'"],
-      ['#8fb3d4', '};']
-    ];
-    lines.forEach(([color, line], index) => {
-      context.fillStyle = color;
-      context.fillText(line, 52, 72 + index * 43);
-    });
-
-    const texture = new THREE.CanvasTexture(canvas);
-    texture.colorSpace = THREE.SRGBColorSpace;
-    texture.anisotropy = 4;
-    return texture;
-  };
-
   document.querySelectorAll<HTMLElement>('[data-laptop-model]').forEach((root) => {
     const canvas = root.querySelector<HTMLCanvasElement>('canvas');
     const modelUrl = root.dataset.modelUrl;
-    if (!canvas || !modelUrl) return;
+    const wallpaperUrl = root.dataset.wallpaperUrl;
+    if (!canvas || !modelUrl || !wallpaperUrl) return;
 
     let renderer: THREE.WebGLRenderer;
     try {
@@ -89,9 +46,12 @@ const base = import.meta.env.BASE_URL;
     rim.position.set(-4, 2, -3);
     scene.add(rim);
 
+    const tilt = new THREE.Group();
+    tilt.rotation.x = -.19;
+    tilt.rotation.z = -.1;
+    scene.add(tilt);
     const pivot = new THREE.Group();
-    pivot.rotation.x = -.13;
-    scene.add(pivot);
+    tilt.add(pivot);
     const initialRotation = -.55;
     let currentRotation = initialRotation;
     let targetRotation = initialRotation;
@@ -115,7 +75,10 @@ const base = import.meta.env.BASE_URL;
         return new THREE.MeshBasicMaterial({
           map: screenTexture,
           toneMapped: false,
-          side: THREE.DoubleSide,
+          // The exported FBX screen uses reversed winding, so its visible display
+          // is the geometry's back face. Rendering only that face prevents the
+          // wallpaper from bleeding through the closed rear shell during a turn.
+          side: THREE.BackSide,
           depthTest: false,
           depthWrite: false
         });
@@ -129,8 +92,11 @@ const base = import.meta.env.BASE_URL;
       });
     };
 
+    const screenTexture = new THREE.TextureLoader().load(wallpaperUrl, queueRender);
+    screenTexture.colorSpace = THREE.SRGBColorSpace;
+    screenTexture.anisotropy = Math.min(8, renderer.capabilities.getMaxAnisotropy());
+
     new FBXLoader().load(modelUrl, (model) => {
-      const screenTexture = createCodeTexture();
       model.traverse((child) => {
         if (!(child instanceof THREE.Mesh)) return;
         const sourceMaterials = Array.isArray(child.material) ? child.material : [child.material];
@@ -149,6 +115,7 @@ const base = import.meta.env.BASE_URL;
       normalizedModel.add(model);
       normalizedModel.scale.setScalar(scale);
       normalizedModel.position.copy(center).multiplyScalar(-scale);
+      normalizedModel.position.add(new THREE.Vector3(.46, -.16, .34));
       pivot.add(normalizedModel);
       modelLoaded = true;
       root.classList.add('model-loaded');

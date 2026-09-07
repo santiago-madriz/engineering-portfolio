@@ -11,7 +11,7 @@ test('home communicates positioning and featured work', async ({ page }) => {
   await expect(page.getByRole('link', { name: /GitHub/ })).toHaveAttribute('href', 'https://github.com/santiago-madriz');
   await expect(page.getByRole('link', { name: 'Home', exact: true })).toHaveAttribute('aria-current', 'page');
   await expect(page.locator('.ambient-motion')).toHaveCount(1);
-  await expect(page.getByAltText('Black laptop displaying colorful Playwright and TypeScript test code')).toBeVisible();
+  await expect(page.getByRole('img', { name: 'Interactive 3D laptop with a modern wallpaper, rotating through a full turn while scrolling' })).toBeVisible();
 });
 
 test('content enters smoothly throughout the page', async ({ page }) => {
