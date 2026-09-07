@@ -8,7 +8,46 @@ const base = import.meta.env.BASE_URL;
 <BaseLayout>
   <section class="hero">
     <div class="hero-copy" data-reveal>
-      <h1>Software built with <em>quality in the system.</em></h1>
+      <h1 class="typewriter-heading" data-typewriter aria-label="Software built with quality in the system."><span data-typewriter-plain>Software built with </span><em data-typewriter-accent>quality in the system.</em><i class="typewriter-caret" aria-hidden="true"></i></h1>
+      <script is:inline>
+        (() => {
+          const heading = document.currentScript?.previousElementSibling;
+          if (!(heading instanceof HTMLElement) || !heading.matches('[data-typewriter]')) return;
+          const plain = heading.querySelector('[data-typewriter-plain]');
+          const accent = heading.querySelector('[data-typewriter-accent]');
+          if (!(plain instanceof HTMLElement) || !(accent instanceof HTMLElement)) return;
+          if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            heading.dataset.typed = 'complete';
+            return;
+          }
+
+          const segments = [
+            { element: plain, text: plain.textContent || '' },
+            { element: accent, text: accent.textContent || '' }
+          ];
+          plain.textContent = '';
+          accent.textContent = '';
+          heading.dataset.typed = 'typing';
+
+          let segmentIndex = 0;
+          let characterIndex = 0;
+          const typeNextCharacter = () => {
+            const segment = segments[segmentIndex];
+            if (!segment) {
+              heading.dataset.typed = 'complete';
+              return;
+            }
+            segment.element.textContent += segment.text[characterIndex] || '';
+            characterIndex += 1;
+            if (characterIndex >= segment.text.length) {
+              segmentIndex += 1;
+              characterIndex = 0;
+            }
+            window.setTimeout(typeNextCharacter, 43);
+          };
+          window.setTimeout(typeNextCharacter, 420);
+        })();
+      </script>
       <p>I’m Santiago, a Software Engineer with Quality Engineering expertise. I build, test, and explain reliable production systems from the API to the user experience.</p>
       <div class="hero-actions">
         <a class="button" href={`${base}projects`}>View selected work <Icon name="arrow" /></a>

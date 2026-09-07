@@ -4,6 +4,8 @@ test('home communicates positioning and featured work', async ({ page }) => {
   await page.goto('/');
   await expect(page).toHaveTitle(/Santiago Madriz/);
   await expect(page.getByRole('heading', { level: 1 })).toContainText('Software built');
+  await expect(page.getByRole('heading', { level: 1 })).toHaveAttribute('data-typed', 'complete');
+  await expect(page.locator('.typewriter-caret')).toHaveCSS('animation-name', 'typewriter-caret');
   await expect(page.getByRole('main')).toBeVisible();
   await expect(page.getByRole('heading', { name: 'Techy' })).toBeVisible();
   await expect(page.getByRole('heading', { name: 'Software Engineer II' })).toBeVisible();
