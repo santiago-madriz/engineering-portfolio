@@ -95,6 +95,7 @@ test('layout has no horizontal overflow', async ({ page }) => {
 
 test('mobile header uses two balanced rows', async ({ page }) => {
   test.skip((page.viewportSize()?.width ?? 999) > 620, 'Mobile layout assertion');
+  await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.goto('/');
   const layout = await page.evaluate(() => {
     const brand = document.querySelector('.brand').getBoundingClientRect();
