@@ -125,13 +125,8 @@ const base = import.meta.env.BASE_URL;
       const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       let progress = 0;
       if (!reducedMotion) {
-        if (window.innerWidth <= 620) {
-          const rect = root.getBoundingClientRect();
-          progress = clamp((window.innerHeight - rect.top) / (window.innerHeight + rect.height));
-        } else {
-          const range = Math.max(480, root.closest('.hero')?.clientHeight ?? 0);
-          progress = clamp(window.scrollY / range);
-        }
+        const range = Math.max(480, window.innerHeight * .72);
+        progress = clamp(window.scrollY / range);
       }
       targetRotation = initialRotation + progress * Math.PI * 2;
       root.dataset.rotation = String(Math.round(progress * 360));

@@ -12,6 +12,17 @@ test('home communicates positioning and featured work', async ({ page }) => {
   await expect(page.getByRole('link', { name: 'Home', exact: true })).toHaveAttribute('aria-current', 'page');
   await expect(page.locator('.ambient-motion')).toHaveCount(1);
   await expect(page.getByRole('img', { name: 'Interactive 3D laptop with a modern wallpaper, rotating through a full turn while scrolling' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Impact, measured.' })).toBeVisible();
+  await expect(page.getByText('99.5%')).toBeVisible();
+  await expect(page.getByText('80%')).toBeVisible();
+  const actionLayout = await page.evaluate(() => {
+    const github = [...document.querySelectorAll('a')].find((link) => link.textContent?.includes('GitHub')).getBoundingClientRect();
+    const laptop = document.querySelector('[data-laptop-model]').getBoundingClientRect();
+    return { githubRight: github.right, githubHeight: github.height, laptopLeft: laptop.left, laptopHeight: laptop.height };
+  });
+  expect(actionLayout.laptopLeft).toBeGreaterThan(actionLayout.githubRight);
+  expect(actionLayout.laptopLeft - actionLayout.githubRight).toBeLessThanOrEqual(12);
+  expect(Math.abs(actionLayout.laptopHeight - actionLayout.githubHeight)).toBeLessThanOrEqual(2);
 });
 
 test('content enters smoothly throughout the page', async ({ page }) => {
