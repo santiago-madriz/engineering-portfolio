@@ -8,7 +8,7 @@ Communicate a focused professional story: software engineering strengthened by d
 
 ## Content
 
-- Selected engineering work, prioritizing projects with current live-product previews
+- Selected engineering work with a dedicated visual preview for every project
 - A production Techy case study linked to [techy-cr.com](https://techy-cr.com/)
 - A private-repository Galería Mexicana case study linked to its [live storefront](https://galeriamexicanacr.com/)
 - An interactive Spanish Sentiment Lab demo with an explicit OpenAI availability disclaimer

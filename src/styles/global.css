@@ -109,6 +109,7 @@ h1 em, h2 em { color: var(--copper-soft); font-style: normal; font-weight: 400; 
 .project-visual { position: relative; height: 150px; margin: 22px -5px 26px; border: 1px solid var(--line); border-radius: 13px; background: radial-gradient(circle at 70% 45%, rgba(255,129,64,.12), transparent 30%), #0c0d0f; overflow: hidden; }
 .project-preview { background: #0a0b0d; }
 .project-preview img { width: 100%; height: 100%; display: block; object-fit: cover; object-position: top center; transition: transform .45s var(--ease), filter .3s var(--ease); }
+.project-preview img[alt="Playwright Quality Engineering project artwork"] { object-position: center; }
 .project-card:hover .project-preview img { transform: scale(1.025); filter: brightness(1.06); }
 .terminal-dots { height: 30px; display: flex; align-items: center; gap: 5px; padding: 0 11px; border-bottom: 1px solid var(--line); }
 .terminal-dots i { width: 5px; height: 5px; border-radius: 50%; background: #555; }

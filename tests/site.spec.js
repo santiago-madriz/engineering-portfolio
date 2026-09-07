@@ -23,7 +23,7 @@ test('all internal navigation targets resolve', async ({ page, request }) => {
 test('work, experience, and credentials are exposed', async ({ page }) => {
   await page.goto('/projects');
   await expect(page.locator('.project-card')).toHaveCount(5);
-  await expect(page.locator('.project-preview')).toHaveCount(4);
+  await expect(page.locator('.project-preview')).toHaveCount(5);
   await page.goto('/experience');
   await expect(page.locator('.career-role')).toHaveCount(5);
   await page.goto('/credentials');
