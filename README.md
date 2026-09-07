@@ -13,8 +13,8 @@ Communicate a focused professional story: software engineering strengthened by d
 - A private-repository Galería Mexicana case study linked to its [live storefront](https://galeriamexicanacr.com/)
 - Prominent live-site, repository, and quality-pipeline links at the start of every case study
 - URL-aware primary navigation with a clear animated current-section indicator
-- Monochrome visual system with expanded display typography and animated film-grain texture
-- A custom laptop render whose perspective responds to scroll, with reduced-motion accessibility support
+- Dark visual system with selective color accents, restrained expanded display typography, and visible animated film-grain texture
+- A compact custom laptop render whose perspective and roll respond clearly to scroll, with reduced-motion accessibility support
 - An interactive Spanish Sentiment Lab demo with an explicit OpenAI availability disclaimer
 - Native work-experience and education sections with official employer references
 - Teaching experience and directly verifiable certificates

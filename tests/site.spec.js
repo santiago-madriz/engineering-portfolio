@@ -17,9 +17,10 @@ test('home communicates positioning and featured work', async ({ page }) => {
 test('laptop responds to scroll and preserves reduced-motion preferences', async ({ page }) => {
   await page.goto('/');
   const laptop = page.locator('[data-scroll-laptop]');
-  await expect(laptop).toHaveCSS('--laptop-turn', '-8deg');
+  await expect(laptop).toHaveCSS('--laptop-turn', '-18deg');
   await page.evaluate(() => window.scrollTo(0, 800));
-  await expect.poll(() => laptop.evaluate((element) => getComputedStyle(element).getPropertyValue('--laptop-turn'))).not.toBe('-8deg');
+  await expect.poll(() => laptop.evaluate((element) => Number.parseFloat(getComputedStyle(element).getPropertyValue('--laptop-turn')))).toBeGreaterThan(20);
+  await expect.poll(() => laptop.evaluate((element) => Number.parseFloat(getComputedStyle(element).getPropertyValue('--laptop-roll')))).toBeGreaterThan(3);
 
   await page.emulateMedia({ reducedMotion: 'reduce' });
   const reducedMotionTurn = await laptop.evaluate((element) => getComputedStyle(element).getPropertyValue('--laptop-turn'));
