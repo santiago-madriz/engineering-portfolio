@@ -8,7 +8,8 @@ Communicate a focused professional story: software engineering strengthened by d
 
 ## Content
 
-- Selected engineering work with live product previews where a public deployment exists
+- Selected engineering work, prioritizing projects with current live-product previews
+- An interactive Spanish Sentiment Lab demo with an explicit OpenAI availability disclaimer
 - Native work-experience and education sections with official employer references
 - Teaching experience and directly verifiable certificates
 
