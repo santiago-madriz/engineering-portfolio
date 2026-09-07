@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Icon from '../components/Icon.astro';
+import LaptopModel from '../components/LaptopModel.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 const base = import.meta.env.BASE_URL;
 ---
@@ -20,11 +21,7 @@ const base = import.meta.env.BASE_URL;
       </ul>
     </div>
     <div class="system-visual" aria-label="A rotating laptop with code and a three-step engineering workflow" data-reveal>
-      <div class="laptop-scene" data-scroll-laptop>
-        <div class="laptop-halo"></div>
-        <img src={`${base}visuals/code-laptop.png`} alt="Black laptop displaying colorful Playwright and TypeScript test code" width="1536" height="1024" loading="eager" fetchpriority="high" />
-        <span class="laptop-caption">Scroll · inspect · ship</span>
-      </div>
+      <LaptopModel />
       <div class="connector a"></div><i class="connector-dot a"></i>
       <div class="connector b"></div><i class="connector-dot b"></i>
       <div class="system-card one">
@@ -40,31 +37,6 @@ const base = import.meta.env.BASE_URL;
       </div>
     </div>
   </section>
-
-  <script>
-    const laptop = document.querySelector<HTMLElement>('[data-scroll-laptop]');
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-    let frame = 0;
-
-    const positionLaptop = () => {
-      frame = 0;
-      if (!laptop || reduceMotion.matches) return;
-      const progress = Math.min(1, Math.max(0, window.scrollY / Math.max(window.innerHeight * .72, 1)));
-      laptop.style.setProperty('--laptop-turn', `${-18 + progress * 48}deg`);
-      laptop.style.setProperty('--laptop-pitch', `${9 - progress * 6}deg`);
-      laptop.style.setProperty('--laptop-roll', `${-7 + progress * 14}deg`);
-      laptop.style.setProperty('--laptop-shift', `${progress * 34}px`);
-    };
-
-    const requestLaptopPosition = () => {
-      if (!frame) frame = window.requestAnimationFrame(positionLaptop);
-    };
-
-    positionLaptop();
-    window.addEventListener('scroll', requestLaptopPosition, { passive: true });
-    window.addEventListener('resize', requestLaptopPosition, { passive: true });
-    reduceMotion.addEventListener('change', positionLaptop);
-  </script>
 
   <section class="section" id="work">
     <div class="section-heading" data-reveal>

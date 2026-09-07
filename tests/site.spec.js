@@ -29,17 +29,21 @@ test('content enters smoothly throughout the page', async ({ page }) => {
 
 test('laptop responds to scroll and preserves reduced-motion preferences', async ({ page }) => {
   await page.goto('/');
-  const laptop = page.locator('[data-scroll-laptop]');
-  await expect(laptop).toHaveCSS('--laptop-turn', '-18deg');
-  await page.evaluate(() => window.scrollTo(0, 800));
-  await expect.poll(() => laptop.evaluate((element) => Number.parseFloat(getComputedStyle(element).getPropertyValue('--laptop-turn')))).toBeGreaterThan(20);
-  await expect.poll(() => laptop.evaluate((element) => Number.parseFloat(getComputedStyle(element).getPropertyValue('--laptop-roll')))).toBeGreaterThan(3);
+  const laptop = page.locator('[data-laptop-model]');
+  await expect(laptop).toHaveAttribute('data-rotation', '0');
+  await expect(laptop.locator('canvas')).toBeVisible();
+  await expect(laptop).toHaveClass(/model-loaded/, { timeout: 15000 });
+  await laptop.evaluate((element) => {
+    const top = element.getBoundingClientRect().top + window.scrollY;
+    window.scrollTo(0, window.innerWidth <= 620 ? top + element.clientHeight : 800);
+  });
+  await expect(laptop).toHaveAttribute('data-rotation', '360');
 
   await page.emulateMedia({ reducedMotion: 'reduce' });
-  const reducedMotionTurn = await laptop.evaluate((element) => getComputedStyle(element).getPropertyValue('--laptop-turn'));
   await page.evaluate(() => window.scrollTo(0, 0));
-  await page.waitForTimeout(50);
-  await expect(laptop).toHaveCSS('--laptop-turn', reducedMotionTurn.trim());
+  await expect(laptop).toHaveAttribute('data-rotation', '0');
+  await page.evaluate(() => window.scrollTo(0, 800));
+  await expect(laptop).toHaveAttribute('data-rotation', '0');
 });
 
 test('primary navigation identifies the current section', async ({ page }) => {
