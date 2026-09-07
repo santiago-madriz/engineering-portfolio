@@ -16,6 +16,7 @@ Communicate a focused professional story: software engineering strengthened by d
 - Dark visual system with eye-friendly warm-gray typography, selective color accents, restrained expanded display typography, and visible animated film-grain texture
 - A compact custom laptop render whose perspective and roll respond clearly to scroll, with reduced-motion accessibility support
 - Viewport-aware entrance transitions for navigation, text, controls, cards, imagery, credentials, and footer content
+- Balanced two-row mobile header with evenly distributed navigation and aligned primary actions
 - An interactive Spanish Sentiment Lab demo with an explicit OpenAI availability disclaimer
 - Native work-experience and education sections with official employer references
 - Teaching experience and directly verifiable certificates

@@ -234,7 +234,9 @@ footer div { display: flex; align-items: center; gap: 9px; }
 
 @media (max-width: 900px) {
   .site-header { height: auto; min-height: 82px; grid-template-columns: 1fr auto; padding: 14px 0; }
-  .site-header nav { grid-column: 1 / -1; display: flex; justify-content: center; gap: 26px; padding-top: 12px; margin-top: 12px; border-top: 1px solid var(--line); }
+  .site-header .brand { grid-column: 1; grid-row: 1; }
+  .site-header .header-cta { grid-column: 2; grid-row: 1; }
+  .site-header nav { grid-column: 1 / -1; grid-row: 2; display: flex; justify-content: center; gap: 26px; padding-top: 12px; margin-top: 12px; border-top: 1px solid var(--line); }
   .hero { grid-template-columns: 1fr; padding-top: 85px; }
   .hero-copy { position: relative; z-index: 2; }
   .system-visual { min-height: 560px; width: min(100%, 600px); margin: 0 auto; }
@@ -245,8 +247,9 @@ footer div { display: flex; align-items: center; gap: 9px; }
 @media (max-width: 620px) {
   .page-shell { width: min(calc(100% - 24px), var(--max)); }
   .brand > span:last-child { display: none; }
-  .site-header { min-height: 70px; }
-  .site-header nav { justify-content: flex-start; gap: 20px; overflow-x: auto; }
+  .site-header { min-height: 70px; grid-template-columns: 1fr 1fr; padding-bottom: 18px; }
+  .site-header nav { width: 100%; justify-content: space-between; gap: 0; overflow: visible; }
+  .site-header nav a { font-size: 12px; }
   .header-cta { font-size: 11px; }
   .hero { padding: 70px 0; min-height: auto; }
   h1 { font-size: clamp(42px, 13.5vw, 50px); }

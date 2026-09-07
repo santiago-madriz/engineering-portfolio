@@ -78,6 +78,27 @@ test('layout has no horizontal overflow', async ({ page }) => {
   }
 });
 
+test('mobile header uses two balanced rows', async ({ page }) => {
+  test.skip((page.viewportSize()?.width ?? 999) > 620, 'Mobile layout assertion');
+  await page.goto('/');
+  const layout = await page.evaluate(() => {
+    const brand = document.querySelector('.brand').getBoundingClientRect();
+    const cta = document.querySelector('.header-cta').getBoundingClientRect();
+    const nav = document.querySelector('.site-header nav').getBoundingClientRect();
+    return {
+      brandTop: brand.top,
+      ctaTop: cta.top,
+      firstRowBottom: Math.max(brand.bottom, cta.bottom),
+      navTop: nav.top,
+      navWidth: nav.width,
+      headerWidth: document.querySelector('.site-header').getBoundingClientRect().width
+    };
+  });
+  expect(Math.abs(layout.brandTop - layout.ctaTop)).toBeLessThanOrEqual(4);
+  expect(layout.navTop).toBeGreaterThan(layout.firstRowBottom);
+  expect(Math.abs(layout.navWidth - layout.headerWidth)).toBeLessThanOrEqual(1);
+});
+
 test('mobile engineering workflow cards never overlap', async ({ page }) => {
   test.skip((page.viewportSize()?.width ?? 999) > 620, 'Mobile layout assertion');
   await page.goto('/');
