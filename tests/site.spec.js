@@ -20,7 +20,7 @@ test('all internal navigation targets resolve', async ({ page, request }) => {
   }
 });
 
-test('work, experience, credentials, and CV are exposed', async ({ page }) => {
+test('work, experience, and credentials are exposed', async ({ page }) => {
   await page.goto('/projects');
   await expect(page.locator('.project-card')).toHaveCount(4);
   await expect(page.locator('.project-preview')).toHaveCount(2);
@@ -28,12 +28,11 @@ test('work, experience, credentials, and CV are exposed', async ({ page }) => {
   await expect(page.locator('.career-role')).toHaveCount(5);
   await page.goto('/credentials');
   await expect(page.locator('.credential-card')).toHaveCount(3);
-  await page.goto('/cv');
-  await expect(page.getByRole('link', { name: /Download PDF/ })).toHaveAttribute('href', '/documents/Santiago-Madriz-CV.pdf');
+  await expect(page.getByRole('link', { name: /View work experience/ })).toHaveAttribute('href', '/experience');
 });
 
 test('layout has no horizontal overflow', async ({ page }) => {
-  for (const path of ['/', '/projects', '/projects/techy', '/experience', '/credentials', '/cv']) {
+  for (const path of ['/', '/projects', '/projects/techy', '/experience', '/credentials']) {
     await page.goto(path);
     const dimensions = await page.evaluate(() => ({ client: document.documentElement.clientWidth, scroll: document.documentElement.scrollWidth }));
     expect(dimensions.scroll, `${path} should not overflow`).toBe(dimensions.client);

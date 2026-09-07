@@ -13,7 +13,7 @@ interface Props {
 }
 const { number, label, title, description, tags, href, featured = false, previewSrc, previewAlt = '' } = Astro.props;
 ---
-<article class:list={['project-card', { featured }]}> 
+<article class:list={['project-card', { featured }]} data-reveal>
   <div class="project-topline"><span>{number}</span><span>{label}</span></div>
   {previewSrc ? (
     <div class="project-visual project-preview">

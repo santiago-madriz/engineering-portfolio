@@ -9,9 +9,8 @@ Communicate a focused professional story: software engineering strengthened by d
 ## Content
 
 - Selected engineering work with live product previews where a public deployment exists
-- Work experience and measurable outcomes drawn from the current CV
+- Native work-experience and education sections with official employer references
 - Teaching experience and directly verifiable certificates
-- Embedded and downloadable one-page CV
 
 ## Local development
 
@@ -30,7 +29,7 @@ npx playwright install chromium
 npm test
 ```
 
-The Playwright suite covers desktop and mobile positioning, navigation integrity, project previews, experience, credentials, CV access, and horizontal layout overflow. GitHub Actions runs the production build and desktop smoke suite.
+The Playwright suite covers desktop and mobile positioning, navigation integrity, project previews, experience, credentials, and horizontal layout overflow. GitHub Actions runs the production build and desktop smoke suite.
 
 ## Deployment
 
