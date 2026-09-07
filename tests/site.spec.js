@@ -11,6 +11,21 @@ test('home communicates positioning and featured work', async ({ page }) => {
   await expect(page.getByRole('link', { name: /GitHub/ })).toHaveAttribute('href', 'https://github.com/santiago-madriz');
   await expect(page.getByRole('link', { name: 'Home', exact: true })).toHaveAttribute('aria-current', 'page');
   await expect(page.locator('.ambient-motion')).toHaveCount(1);
+  await expect(page.getByAltText('Black laptop displaying colorful Playwright and TypeScript test code')).toBeVisible();
+});
+
+test('laptop responds to scroll and preserves reduced-motion preferences', async ({ page }) => {
+  await page.goto('/');
+  const laptop = page.locator('[data-scroll-laptop]');
+  await expect(laptop).toHaveCSS('--laptop-turn', '-8deg');
+  await page.evaluate(() => window.scrollTo(0, 800));
+  await expect.poll(() => laptop.evaluate((element) => getComputedStyle(element).getPropertyValue('--laptop-turn'))).not.toBe('-8deg');
+
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  const reducedMotionTurn = await laptop.evaluate((element) => getComputedStyle(element).getPropertyValue('--laptop-turn'));
+  await page.evaluate(() => window.scrollTo(0, 0));
+  await page.waitForTimeout(50);
+  await expect(laptop).toHaveCSS('--laptop-turn', reducedMotionTurn.trim());
 });
 
 test('primary navigation identifies the current section', async ({ page }) => {
