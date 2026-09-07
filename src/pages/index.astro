@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Icon from '../components/Icon.astro';
 import ProjectCard from '../components/ProjectCard.astro';
+const base = import.meta.env.BASE_URL;
 ---
 <BaseLayout>
   <section class="hero">
@@ -10,7 +11,7 @@ import ProjectCard from '../components/ProjectCard.astro';
       <h1>Software built with <em>quality in the system.</em></h1>
       <p>I’m Santiago, a Software Engineer with Quality Engineering expertise. I build, test, and explain reliable production systems from the API to the user experience.</p>
       <div class="hero-actions">
-        <a class="button" href="/projects">View selected work <Icon name="arrow" /></a>
+        <a class="button" href={`${base}projects`}>View selected work <Icon name="arrow" /></a>
         <a class="button secondary" href="https://github.com/santiago-madriz" target="_blank" rel="noopener"><Icon name="github" /> GitHub</a>
       </div>
       <ul class="hero-proof">
@@ -42,9 +43,9 @@ import ProjectCard from '../components/ProjectCard.astro';
       <div><h2>Real work, <em>deliberately engineered.</em></h2><p>A small set of projects chosen to show product thinking, software development, and a quality strategy that goes beyond happy-path automation.</p></div>
     </div>
     <div class="project-grid">
-      <ProjectCard number="01" label="Product system" title="Techy" description="A real commerce experience for Apple products in Costa Rica, now entering a private modernization phase with a public-safe engineering story." tags={['Next.js', 'TypeScript', 'Sanity']} href="/projects/techy" featured />
-      <ProjectCard number="02" label="Quality platform" title="Playwright Quality Engineering" description="Risk-based UI, API, accessibility, performance, and cross-browser coverage organized as a production-style test system." tags={['Playwright', 'TypeScript', 'CI/CD']} href="/projects/playwright-quality-engineering" />
-      <ProjectCard number="03" label="Production frontend" title="Photo & Film Portfolio" description="An owned, media-heavy production site with bilingual UX, accessibility gates, responsive behavior, and automated release checks." tags={['Web', 'A11y', 'Playwright']} href="/projects/photography-platform" />
+      <ProjectCard number="01" label="Product system" title="Techy" description="A real commerce experience for Apple products in Costa Rica, now entering a private modernization phase with a public-safe engineering story." tags={['Next.js', 'TypeScript', 'Sanity']} href={`${base}projects/techy`} featured />
+      <ProjectCard number="02" label="Quality platform" title="Playwright Quality Engineering" description="Risk-based UI, API, accessibility, performance, and cross-browser coverage organized as a production-style test system." tags={['Playwright', 'TypeScript', 'CI/CD']} href={`${base}projects/playwright-quality-engineering`} />
+      <ProjectCard number="03" label="Production frontend" title="Photo & Film Portfolio" description="An owned, media-heavy production site with bilingual UX, accessibility gates, responsive behavior, and automated release checks." tags={['Web', 'A11y', 'Playwright']} href={`${base}projects/photography-platform`} />
     </div>
   </section>
 

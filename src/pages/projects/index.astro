@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ProjectCard from '../../components/ProjectCard.astro';
+const base = import.meta.env.BASE_URL;
 ---
 <BaseLayout title="Projects · Santiago Madriz" description="Selected software and quality engineering projects by Santiago Madriz.">
   <div class="projects-page">
@@ -10,10 +11,10 @@ import ProjectCard from '../../components/ProjectCard.astro';
       <p>Each project earns its place by showing a different part of the same story: building useful software, managing risk, and shipping with confidence.</p>
     </header>
     <div class="project-grid">
-      <ProjectCard number="01" label="Product system" title="Techy" description="Private production product and modernization case study for a real Costa Rican commerce business." tags={['Next.js', 'React', 'Sanity']} href="/projects/techy" featured />
-      <ProjectCard number="02" label="Quality platform" title="Playwright Quality Engineering" description="Production-style quality architecture spanning UI, API, accessibility, and delivery gates." tags={['Playwright', 'TypeScript', 'CI/CD']} href="/projects/playwright-quality-engineering" />
-      <ProjectCard number="03" label="Production frontend" title="Photo & Film Portfolio" description="A real media portfolio optimized for responsive delivery, accessibility, and maintainable release confidence." tags={['HTML', 'JavaScript', 'Playwright']} href="/projects/photography-platform" />
-      <ProjectCard number="04" label="Backend case study" title="Spanish Sentiment Lab" description="A secure Flask system demonstrating API validation, data constraints, security controls, and test coverage." tags={['Python', 'Flask', 'Pytest']} href="/projects/spanish-sentiment-lab" />
+      <ProjectCard number="01" label="Product system" title="Techy" description="Private production product and modernization case study for a real Costa Rican commerce business." tags={['Next.js', 'React', 'Sanity']} href={`${base}projects/techy`} featured />
+      <ProjectCard number="02" label="Quality platform" title="Playwright Quality Engineering" description="Production-style quality architecture spanning UI, API, accessibility, and delivery gates." tags={['Playwright', 'TypeScript', 'CI/CD']} href={`${base}projects/playwright-quality-engineering`} />
+      <ProjectCard number="03" label="Production frontend" title="Photo & Film Portfolio" description="A real media portfolio optimized for responsive delivery, accessibility, and maintainable release confidence." tags={['HTML', 'JavaScript', 'Playwright']} href={`${base}projects/photography-platform`} />
+      <ProjectCard number="04" label="Backend case study" title="Spanish Sentiment Lab" description="A secure Flask system demonstrating API validation, data constraints, security controls, and test coverage." tags={['Python', 'Flask', 'Pytest']} href={`${base}projects/spanish-sentiment-lab`} />
     </div>
   </div>
 </BaseLayout>

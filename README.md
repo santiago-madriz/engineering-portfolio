@@ -29,4 +29,4 @@ The Playwright suite covers desktop and mobile positioning, navigation integrity
 
 The site builds to `dist/` and can be deployed to Cloudflare Pages, Netlify, Vercel, or GitHub Pages. Set the production project to build with `npm run build` and publish `dist`.
 
-The configured canonical domain is `santiago-madriz.dev`; connect it only after purchasing the domain and selecting a hosting provider.
+The production portfolio is published at `https://santiagomadriz.com/dev/`.
