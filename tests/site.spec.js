@@ -38,3 +38,15 @@ test('layout has no horizontal overflow', async ({ page }) => {
     expect(dimensions.scroll, `${path} should not overflow`).toBe(dimensions.client);
   }
 });
+
+test('mobile engineering workflow cards never overlap', async ({ page }) => {
+  test.skip((page.viewportSize()?.width ?? 999) > 620, 'Mobile layout assertion');
+  await page.goto('/');
+  const cards = await page.locator('.system-card').evaluateAll((items) => items.map((item) => {
+    const rect = item.getBoundingClientRect();
+    return { top: rect.top, bottom: rect.bottom };
+  }));
+  expect(cards).toHaveLength(3);
+  expect(cards[0].bottom).toBeLessThanOrEqual(cards[1].top);
+  expect(cards[1].bottom).toBeLessThanOrEqual(cards[2].top);
+});

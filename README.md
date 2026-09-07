@@ -32,7 +32,7 @@ npx playwright install chromium
 npm test
 ```
 
-The Playwright suite covers desktop and mobile positioning, navigation integrity, project previews, experience, credentials, and horizontal layout overflow. GitHub Actions runs the production build and desktop smoke suite.
+The Playwright suite covers desktop and mobile positioning, non-overlapping workflow cards, navigation integrity, project previews, experience, credentials, and horizontal layout overflow. GitHub Actions runs the production build and desktop smoke suite.
 
 ## Deployment
 

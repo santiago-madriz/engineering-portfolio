@@ -220,15 +220,10 @@ footer div { display: flex; align-items: center; gap: 9px; }
   .hero { padding: 70px 0; min-height: auto; }
   h1 { font-size: 50px; }
   .hero-proof { flex-direction: column; gap: 10px; }
-  .system-visual { min-height: 430px; }
-  .system-card { padding: 14px; }
-  .system-card.one { width: 86%; }
-  .system-card.two { width: 84%; top: 165px; }
-  .system-card.three { width: 82%; }
-  .connector.a { top: 143px; }
-  .connector-dot.a { top: 139px; }
-  .connector.b { top: 318px; }
-  .connector-dot.b { top: 314px; }
+  .system-visual { min-height: 0; display: grid; gap: 18px; padding-left: 10px; }
+  .system-card, .system-card.one, .system-card.two, .system-card.three { position: relative; inset: auto; width: 100%; padding: 16px; }
+  .system-card.one::after, .system-card.two::after { content: ''; position: absolute; z-index: -1; bottom: -19px; left: 28px; width: 2px; height: 19px; background: var(--copper); box-shadow: 0 0 10px rgba(255,115,49,.7); }
+  .connector, .connector-dot { display: none; }
   .section { padding: 80px 0; }
   .projects-page .project-grid { grid-template-columns: 1fr; }
   .experience-item, .career-role { grid-template-columns: 1fr; gap: 12px; }
