@@ -97,6 +97,10 @@ test('work, experience, and credentials are exposed', async ({ page }) => {
   await page.goto('/experience');
   await expect(page.locator('.career-role')).toHaveCount(5);
   await page.goto('/credentials');
+  await expect(page.locator('.teaching-preview')).toHaveCount(2);
+  await expect(page.locator('.teaching-preview img')).toHaveCount(2);
+  await expect(page.getByRole('link', { name: /AI for Everyone teaching post/ })).toHaveAttribute('href', 'https://lnkd.in/p/eF3dfbv8');
+  await expect(page.getByRole('link', { name: /Communication in Tech workshop post/ })).toHaveAttribute('href', 'https://lnkd.in/p/e3vPtWsC');
   await expect(page.locator('.credential-card')).toHaveCount(3);
   await expect(page.getByRole('link', { name: /View work experience/ })).toHaveAttribute('href', '/experience');
 });
