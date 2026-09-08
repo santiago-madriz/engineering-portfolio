@@ -114,6 +114,13 @@ test('experience dates stay clear of the active timeline accent', async ({ page 
     const timeBox = element.querySelector('time').getBoundingClientRect();
     return timeBox.left - roleBox.left;
   });
+  expect(spacing).toBeGreaterThanOrEqual(15.5);
+});
+
+test('home experience dates stay clear of the featured banner edge', async ({ page }) => {
+  await page.goto('/');
+  const role = page.locator('.experience-item').first();
+  const spacing = await role.locator('time').evaluate((element) => parseFloat(getComputedStyle(element).paddingLeft));
   expect(spacing).toBeGreaterThanOrEqual(16);
 });
 

@@ -23,6 +23,7 @@ Communicate a focused professional story: software engineering strengthened by d
 - An interactive Spanish Sentiment Lab demo with an explicit OpenAI availability disclaimer
 - Native work-experience and education sections with official employer references
 - Responsive career timeline with protected spacing for dates and active-state accents
+- Home experience summary with protected spacing between featured banners and dates
 - Teaching experience with source-linked event imagery, plus directly verifiable certificates
 
 ## Local development
