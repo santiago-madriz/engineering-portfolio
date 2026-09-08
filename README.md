@@ -15,7 +15,7 @@ Communicate a focused professional story: software engineering strengthened by d
 - URL-aware primary navigation with a clear animated current-section indicator
 - Dark visual system with eye-friendly warm-gray typography, layered navy-blue accents, restrained expanded display typography, and visible animated film-grain texture
 - A real WebGL laptop model with its original modern wallpaper, an offset corner pivot, and a full 360° scroll-driven rotation with reduced-motion support
-- A compact achievement dashboard presenting four CV-backed outcomes through an animated reliability ring and delivery-impact bars
+- A compact achievement dashboard presenting three individual CV-backed outcomes through animated delivery-impact bars
 - Restrained hover feedback with slower easing, minimal movement, and smooth image, border, shadow, and link transitions
 - A character-by-character hero headline with a persistent blinking cursor and a reduced-motion-safe static presentation
 - Viewport-aware entrance transitions for navigation, text, controls, cards, imagery, credentials, and footer content

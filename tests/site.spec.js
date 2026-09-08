@@ -15,8 +15,9 @@ test('home communicates positioning and featured work', async ({ page }) => {
   await expect(page.locator('.ambient-motion')).toHaveCount(1);
   await expect(page.getByRole('img', { name: 'Interactive 3D laptop with a modern wallpaper, rotating through a full turn while scrolling' })).toBeVisible();
   await expect(page.getByRole('heading', { name: 'Impact, measured.' })).toBeVisible();
-  await expect(page.getByText('99.5%')).toBeVisible();
+  await expect(page.getByText('99.5%')).toHaveCount(0);
   await expect(page.getByText('80%')).toBeVisible();
+  await expect(page.locator('.impact-bars .impact-card')).toHaveCount(3);
   const actionLayout = await page.evaluate(() => {
     const github = [...document.querySelectorAll('a')].find((link) => link.textContent?.includes('GitHub')).getBoundingClientRect();
     const laptop = document.querySelector('[data-laptop-model]').getBoundingClientRect();
@@ -38,6 +39,19 @@ test('content enters smoothly throughout the page', async ({ page }) => {
   await expect(page.getByRole('heading', { name: /Real work/ })).toHaveClass(/entered/);
   await page.getByRole('heading', { name: 'Techy' }).scrollIntoViewIfNeeded();
   await expect(page.getByRole('heading', { name: 'Techy' })).toHaveClass(/entered/);
+});
+
+test('skip link stays hidden during touch-style scrolling and appears for keyboard navigation', async ({ page }) => {
+  await page.goto('/');
+  const skipLink = page.getByRole('link', { name: 'Skip to content' });
+  await page.evaluate(() => window.scrollTo(0, 500));
+  await expect(skipLink).toHaveCSS('opacity', '0');
+  await expect(skipLink).toHaveCSS('pointer-events', 'none');
+  if ((page.viewportSize()?.width ?? 999) <= 620) return;
+  await page.evaluate(() => window.scrollTo(0, 0));
+  await page.keyboard.press('Tab');
+  await expect(skipLink).toBeFocused();
+  await expect(skipLink).toHaveCSS('opacity', '1');
 });
 
 test('laptop responds to scroll and preserves reduced-motion preferences', async ({ page }) => {
