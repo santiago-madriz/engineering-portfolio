@@ -202,7 +202,7 @@ footer div { display: flex; align-items: center; gap: 9px; }
 .career-role { display: grid; grid-template-columns: minmax(170px,.5fr) 1.5fr; gap: 48px; padding: 38px 0; border-top: 1px solid var(--line); }
 .career-role { transition: transform .55s var(--hover-ease), background-color .55s var(--hover-ease), box-shadow .55s var(--hover-ease); }
 .career-role:hover { transform: translateX(4px); background-color: rgba(63,111,159,.035); box-shadow: inset 2px 0 rgba(63,111,159,.3); }
-.career-role > div:first-child { display: flex; align-items: flex-start; flex-direction: column; gap: 10px; }
+.career-role > div:first-child { display: flex; align-items: flex-start; flex-direction: column; gap: 10px; padding-left: 16px; }
 .career-role > div:first-child span { padding: 4px 7px; border: 1px solid rgba(63,111,159,.4); border-radius: 6px; color: var(--copper-soft); font-size: 9px; text-transform: uppercase; }
 .career-role h2 { margin: 0; font-size: 28px; font-weight: 550; letter-spacing: -.035em; }
 .career-role p, .career-role li { color: var(--muted); }

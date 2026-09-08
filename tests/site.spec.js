@@ -105,6 +105,18 @@ test('work, experience, and credentials are exposed', async ({ page }) => {
   await expect(page.getByRole('link', { name: /View work experience/ })).toHaveAttribute('href', '/experience');
 });
 
+test('experience dates stay clear of the active timeline accent', async ({ page }) => {
+  await page.goto('/experience');
+  const role = page.locator('.career-role').first();
+  await role.hover();
+  const spacing = await role.evaluate((element) => {
+    const roleBox = element.getBoundingClientRect();
+    const timeBox = element.querySelector('time').getBoundingClientRect();
+    return timeBox.left - roleBox.left;
+  });
+  expect(spacing).toBeGreaterThanOrEqual(16);
+});
+
 test('layout has no horizontal overflow', async ({ page }) => {
   for (const path of ['/', '/projects', '/projects/techy', '/projects/galeria-mexicana', '/experience', '/credentials']) {
     await page.goto(path);
